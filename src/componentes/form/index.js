@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as C from "./styles"
 
-export const Form = (handleAdd) => {
+export const Form = ({handleAdd, transactionsList, setTransactionsList}) => {
     const [desc, setDesc] = useState("")//descrição
     const [amount, setAmount] = useState("")//valor
     const [isExpense, setExpense] = useState("")//saídas
@@ -17,16 +17,19 @@ export const Form = (handleAdd) => {
             return;
         }
 
-
         const transaction = {
             id: generateID(),
             desc: desc,
             amount: amount,
             expense: isExpense
-        }
+        };
 
         handleAdd(transaction)
+
+        setDesc("");
+        setAmount("")
     };
+
     return (
         <>
             <C.Container>
