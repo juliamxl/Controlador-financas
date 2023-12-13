@@ -10,7 +10,7 @@ const GridItem = ({ item, onDelete }) => {
   return (
     <C.Tr>
       <C.Td>{item.desc}</C.Td>
-      <C.Td>{item.amount}</C.Td>
+      <C.Td>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.amount)}</C.Td>
       <C.Td alignCenter>
         {item.expense ? (
           <FaRegArrowAltCircleDown color="red" />

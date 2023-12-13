@@ -28,8 +28,8 @@ const App = () => {
 
         const total = Math.abs(income - expense).toFixed(2);
 
-        setIncome(`R$ ${income}`);
-        setExpense(`R$ ${expense}`);
+        setIncome(`${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(income)}`);
+        setExpense(`${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(expense)}`);
         setTotal(`${Number(income) < Number(expense) ? "-" : ""}R$ ${total}`);
     }, [transactionsList]);
 
